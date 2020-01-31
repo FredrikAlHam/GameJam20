@@ -25,4 +25,9 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("EndGameMenu");
     }
+
+    public void GameOverMenu() //This function starts the game by loading the first "Level" scene
+    {
+        SceneManager.LoadScene("GameOverMenu");
+    }
 }
