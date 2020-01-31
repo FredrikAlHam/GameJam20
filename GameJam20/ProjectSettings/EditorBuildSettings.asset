@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGameMenu.unity
     guid: 00c82652f1bf10f4ea98221f09250608
+  - enabled: 1
+    path: Assets/Scenes/DifficultyMenu.unity
+    guid: bf3504f00d82f114ca72ac7112c5bd0e
   m_configObjects: {}
