@@ -1,22 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BackgroundTrigger : MonoBehaviour
 {
-    SpriteRenderer backgroundOff, backgroundOn, background1, background2, background3, background4, background5, background6, backgroundBlack;
+    SpriteRenderer backgroundOff, backgroundOn, background1, background2, background3, background4, background5, background6, background7, backgroundBlack;
     int backgroundNumber = 0;
     bool hasStartedTimer;
     
     void Start()
     {
-        //CHANGE TO SPRITE RENDERER
         background1 = GameObject.Find("Background1").GetComponent<SpriteRenderer>();
         background2 = GameObject.Find("Background2").GetComponent<SpriteRenderer>();
-        background3 = GameObject.Find("Background3").GetComponent<SpriteRenderer>();
-        background4 = GameObject.Find("Background4").GetComponent<SpriteRenderer>();
-        background5 = GameObject.Find("Background5").GetComponent<SpriteRenderer>();
-        background6 = GameObject.Find("Background6").GetComponent<SpriteRenderer>();
+        //background3 = GameObject.Find("Background3").GetComponent<SpriteRenderer>();
+        //background4 = GameObject.Find("Background4").GetComponent<SpriteRenderer>();
+        //background5 = GameObject.Find("Background5").GetComponent<SpriteRenderer>();
+        //background6 = GameObject.Find("Background6").GetComponent<SpriteRenderer>();
         backgroundBlack = GameObject.Find("BackgroundBlack").GetComponent<SpriteRenderer>();
         Globals.time = 5;
     }
@@ -60,6 +60,13 @@ public class BackgroundTrigger : MonoBehaviour
                 backgroundOn = background6;
                 StartCoroutine(WaitTimer());
             }
+            if (backgroundNumber == 5)
+            {
+                hasStartedTimer = true;
+                backgroundOff = background6;
+                backgroundOn = background7;
+                StartCoroutine(ChangeScene());
+            }
         }
     }
 
@@ -67,18 +74,19 @@ public class BackgroundTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(Globals.time);
         backgroundOff.enabled = false;
-        StartCoroutine(BlackScreen());
+        backgroundBlack.enabled = true;
+        yield return new WaitForSeconds(2);
+        backgroundBlack.enabled = false;
         backgroundOn.enabled = true;
         backgroundBlack.enabled = false;
         backgroundNumber++;
         hasStartedTimer = false;
     }
 
-    IEnumerator BlackScreen()
+    IEnumerator ChangeScene()
     {
-        backgroundBlack.enabled = true;
-        yield return new WaitForSeconds(2);
-        backgroundBlack.enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        //SceneManager.LoadScene(""); END GAME MENU (ÖVERLEVT) ELLER GAME OVER (FÖRLORAT)
     }
 }
 
