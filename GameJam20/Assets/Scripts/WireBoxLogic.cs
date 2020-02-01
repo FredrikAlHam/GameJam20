@@ -21,7 +21,7 @@
         {
             if (color == "red")
             {
-                if (dest == 1 && origin == 5 || dest == 2 && origin == 3 || dest == 3 && origin == 2 || dest == 4 && origin == 10 || dest == 5 && origin == 11 || dest == 6 && origin == 12 || dest == 0 && origin == 13) return true;
+                if (dest == 1 && origin == 5 || dest == 2 && origin == 3 || dest == 3 && origin == 2 || dest == 4 && origin == 10 || dest == 5 && origin == 11 || dest == 1 && origin == 12 || dest == 0 && origin == 13) return true;
             }
             else if (color == "blue")
             {
@@ -50,5 +50,13 @@
             else if (color == "white" && 6 - origin == dest) return true;
         }
         return false;
+    }
+    public static int GetSolution(int origin, string color, int count)
+    {
+        if(count == 4)
+        {
+
+        }
+        return 0;
     }
 }
