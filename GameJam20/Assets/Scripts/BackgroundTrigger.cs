@@ -23,7 +23,6 @@ public class BackgroundTrigger : MonoBehaviour
         background6 = GameObject.Find("Background6").GetComponent<Image>();
         background7 = GameObject.Find("Background7").GetComponent<Image>();
         backgroundBlack = GameObject.Find("BackgroundBlack").GetComponent<Image>();
-        Globals.time = 5;
     }
 
     void Update()
