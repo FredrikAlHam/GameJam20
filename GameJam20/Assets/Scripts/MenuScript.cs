@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
 
-    Image tree, face;
+    Image tree;
     void Start()
     {
         tree = GameObject.Find("tree").GetComponent<Image>();
-        face = GameObject.Find("face").GetComponent<Image>();
     }
 
     public void QuitGame() //This function closes the application when triggered
@@ -68,21 +67,9 @@ public class MenuScript : MonoBehaviour
         StartCoroutine(waitForThree());
     }
 
-    public void ButtonFace()
-    {
-        face.enabled = true;
-        StartCoroutine(waitFace());
-    }
-
     IEnumerator waitForThree()
     {
         yield return new WaitForSeconds(0.3f);
         tree.enabled = false;
-    }
-
-    IEnumerator waitFace()
-    {
-        yield return new WaitForSeconds(0.3f);
-        face.enabled = false;
     }
 }
