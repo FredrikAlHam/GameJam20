@@ -31,25 +31,26 @@ public class ShapeCable : MonoBehaviour
         if (color == 1)
         {
             colorString = "red";
-            sprite.color = Color.red;
+            cableLine.startColor = Color.red;
+            cableLine.endColor = Color.red;
         }
 
         else if (color == 2)
         {
             colorString = "blue";
-            sprite.color = Color.blue;
+            cableLine.SetColors(Color.blue, Color.blue);
         }
 
         else if (color == 3)
         {
             colorString = "green";
-            sprite.color = Color.green;
+            cableLine.SetColors(Color.green, Color.green);
         }
 
         else if (color == 4)
         {
             colorString = "white";
-            sprite.color = Color.white;
+            cableLine.SetColors(Color.white, Color.white);
         }
 
         #endregion
