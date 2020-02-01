@@ -15,19 +15,24 @@ public class BackgroundTrigger : MonoBehaviour
     
     void Start()
     {
-        radio.Play(0);
         background1 = GameObject.Find("Background1").GetComponent<Image>();
         background2 = GameObject.Find("Background2").GetComponent<Image>();
         background3 = GameObject.Find("Background3").GetComponent<Image>();
         background4 = GameObject.Find("Background4").GetComponent<Image>();
         background5 = GameObject.Find("Background5").GetComponent<Image>();
         background6 = GameObject.Find("Background6").GetComponent<Image>();
+        background7 = GameObject.Find("Background7").GetComponent<Image>();
         backgroundBlack = GameObject.Find("BackgroundBlack").GetComponent<Image>();
         Globals.time = 5;
     }
 
     void Update()
     {
+        if (Globals.radioStart)
+        {
+            radio.Play(0);
+            Globals.radioStart = false;
+        }
         if (!hasStartedTimer)
         {
             if (backgroundNumber == 0)
@@ -127,4 +132,5 @@ public class BackgroundTrigger : MonoBehaviour
 public static class Globals
 {
     public static int time;
+    public static bool radioStart;
 }
