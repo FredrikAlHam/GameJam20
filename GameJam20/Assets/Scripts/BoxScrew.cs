@@ -3,13 +3,13 @@
 public class BoxScrew : MonoBehaviour
 {
     [SerializeField]
-    private float rotationSpeed;
+    private float rotationSpeed = 5;
     [SerializeField]
     private float totalRotation = 0;
     [SerializeField]
-    private float scrollSensativity;
+    private float scrollSensativity = 10;
     [SerializeField]
-    private float totalRotationRequired;
+    private float totalRotationRequired = 500;
     private void OnMouseOver()
     {
         if (totalRotation >= 0 && Input.GetAxis("Mouse ScrollWheel") >= 0)
