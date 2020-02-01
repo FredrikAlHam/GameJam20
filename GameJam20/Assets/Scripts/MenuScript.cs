@@ -30,4 +30,22 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("GameOverMenu");
     }
+    public void DifficultyMenu() //This function loads the difficulty menu scene
+    {
+        SceneManager.LoadScene("DifficultyMenu");
+    }
+    public void Easy() //This function changes the difficulty
+    {
+        Globals.time = 50;
+    }
+    public void Normal() //This function changes the difficulty
+    {
+        Globals.time = 30;
+    }
+
+    public void Hard() //This function changes the difficulty
+    {
+        Globals.time = 15;
+    }
+
 }
