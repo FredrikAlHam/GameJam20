@@ -34,6 +34,10 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("DifficultyMenu");
     }
+    public void CreditsMenu() //This function loads the difficulty menu scene
+    {
+        SceneManager.LoadScene("CreditsMenu");
+    }
     public void Easy() //This function changes the difficulty
     {
         Globals.time = 50;

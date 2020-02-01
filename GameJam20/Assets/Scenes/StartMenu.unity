@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 55137132}
   - component: {fileID: 55137131}
   m_Layer: 5
-  m_Name: DifficultiesButton
+  m_Name: CreditsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 646386731}
-        m_MethodName: DifficultyMenu
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -622,7 +622,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 646386731}
-        m_MethodName: PlayGame
+        m_MethodName: DifficultyMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -863,7 +863,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DIFFICULTY
+  m_Text: CREDITS
 --- !u!222 &878752170
 CanvasRenderer:
   m_ObjectHideFlags: 0
