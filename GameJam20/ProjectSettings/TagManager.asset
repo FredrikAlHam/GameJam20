@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Red
+  - White
+  - Green
+  - Blue
   layers:
   - Default
   - TransparentFX
@@ -40,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cable
+    uniqueID: 265957483
+    locked: 0
+  - name: Box
+    uniqueID: 3599295639
     locked: 0
