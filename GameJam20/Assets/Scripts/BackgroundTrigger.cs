@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BackgroundTrigger : MonoBehaviour
 {
-    SpriteRenderer backgroundOff, backgroundOn, background1, background2, background3, background4, background5, background6, background7, backgroundBlack;
+    Image backgroundOff, backgroundOn, background1, background2, background3, background4, background5, background6, background7, backgroundBlack;
     int backgroundNumber = 0;
-    bool hasStartedTimer;
+    bool hasStartedTimer, success;
+
+    [SerializeField]
+    AudioSource scream, footsteps, scissors, radio;
     
     void Start()
     {
-        background1 = GameObject.Find("Background1").GetComponent<SpriteRenderer>();
-        background2 = GameObject.Find("Background2").GetComponent<SpriteRenderer>();
-        //background3 = GameObject.Find("Background3").GetComponent<SpriteRenderer>();
-        //background4 = GameObject.Find("Background4").GetComponent<SpriteRenderer>();
-        //background5 = GameObject.Find("Background5").GetComponent<SpriteRenderer>();
-        //background6 = GameObject.Find("Background6").GetComponent<SpriteRenderer>();
-        backgroundBlack = GameObject.Find("BackgroundBlack").GetComponent<SpriteRenderer>();
+        background1 = GameObject.Find("Background1").GetComponent<Image>();
+        background2 = GameObject.Find("Background2").GetComponent<Image>();
+        background3 = GameObject.Find("Background3").GetComponent<Image>();
+        background4 = GameObject.Find("Background4").GetComponent<Image>();
+        background5 = GameObject.Find("Background5").GetComponent<Image>();
+        background6 = GameObject.Find("Background6").GetComponent<Image>();
+        backgroundBlack = GameObject.Find("BackgroundBlack").GetComponent<Image>();
         Globals.time = 5;
     }
 
@@ -59,13 +63,21 @@ public class BackgroundTrigger : MonoBehaviour
                 backgroundOff = background5;
                 backgroundOn = background6;
                 StartCoroutine(WaitTimer());
+                scissors.Play(0);
             }
             if (backgroundNumber == 5)
             {
                 hasStartedTimer = true;
-                backgroundOff = background6;
-                backgroundOn = background7;
-                StartCoroutine(ChangeScene());
+                background6.enabled = false;
+                background7.enabled = true;
+                if (!success)
+                {
+                    StartCoroutine(DeathScene());
+                }
+                else if (success)
+                {
+                    StartCoroutine(SuccessScene());
+                }
             }
         }
     }
@@ -75,6 +87,7 @@ public class BackgroundTrigger : MonoBehaviour
         yield return new WaitForSeconds(Globals.time);
         backgroundOff.enabled = false;
         backgroundBlack.enabled = true;
+        footsteps.Play(0);
         yield return new WaitForSeconds(2);
         backgroundBlack.enabled = false;
         backgroundOn.enabled = true;
@@ -83,10 +96,21 @@ public class BackgroundTrigger : MonoBehaviour
         hasStartedTimer = false;
     }
 
-    IEnumerator ChangeScene()
+    IEnumerator DeathScene()
     {
+        backgroundBlack.enabled = true;
+        scream.Play(0);
         yield return new WaitForSeconds(0.5f);
-        //SceneManager.LoadScene(""); END GAME MENU (ÖVERLEVT) ELLER GAME OVER (FÖRLORAT)
+        SceneManager.LoadScene("DeathScene");
+    }
+
+    IEnumerator SuccessScene()
+    {
+        background7.enabled = false;
+        background1.enabled = true;
+        radio.Play(0);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("SuccessScene");
     }
 }
 
