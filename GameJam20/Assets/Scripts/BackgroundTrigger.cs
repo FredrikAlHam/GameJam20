@@ -60,8 +60,8 @@ public class BackgroundTrigger : MonoBehaviour
                 hasStartedTimer = true;
                 backgroundOff = background4;
                 backgroundOn = background5;
-                radio.Stop();
                 StartCoroutine(WaitTimer());
+                radio.Stop();
             }
             if (backgroundNumber == 4)
             {
