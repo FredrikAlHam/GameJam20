@@ -14,7 +14,7 @@ public class BackgroundTrigger : MonoBehaviour
     GameObject particleNotes;
 
     [SerializeField]
-    AudioSource scream, footsteps, scissors, radio, door;
+    AudioSource scream, footsteps, scissors, radio, door, gravelFootsteps, shortCircuit;
     
     void Start()
     {
@@ -43,14 +43,14 @@ public class BackgroundTrigger : MonoBehaviour
                 hasStartedTimer = true;
                 backgroundOff = background1;
                 backgroundOn = background2;
-                StartCoroutine(WaitTimer());
+                StartCoroutine(WaitTimerOutside());
             }
             if (backgroundNumber == 1)
             {
                 hasStartedTimer = true;
                 backgroundOff = background2;
                 backgroundOn = background3;
-                StartCoroutine(WaitTimer());
+                StartCoroutine(WaitTimerOutside());
             }
             if (backgroundNumber == 2)
             {
@@ -106,14 +106,32 @@ public class BackgroundTrigger : MonoBehaviour
         {
             scissors.Play(0);
         }
+        shortCircuit.Play(0);
+        backgroundBlack.enabled = true;
+        footsteps.Play(0);
+        yield return new WaitForSeconds(1.5f);
+        footsteps.Stop();
+        backgroundBlack.enabled = false;
+        backgroundOn.enabled = true;
+        backgroundBlack.enabled = false;
+        backgroundNumber++;
+        hasStartedTimer = false;
+    }
+
+    public IEnumerator WaitTimerOutside()
+    {
+        yield return new WaitForSeconds(Globals.time);
+        backgroundOff.enabled = false;
         backgroundBlack.enabled = true;
         if (backgroundNumber == 1)
         {
             door.Play(0);
         }
-        footsteps.Play(0);
+        shortCircuit.Play(0);
+        backgroundBlack.enabled = true;
+        gravelFootsteps.Play(0);
         yield return new WaitForSeconds(1.5f);
-        footsteps.Stop();
+        gravelFootsteps.Stop();
         backgroundBlack.enabled = false;
         backgroundOn.enabled = true;
         backgroundBlack.enabled = false;
