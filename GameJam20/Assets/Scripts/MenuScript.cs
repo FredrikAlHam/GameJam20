@@ -10,7 +10,14 @@ public class MenuScript : MonoBehaviour
     Image tree;
     void Start()
     {
-        tree = GameObject.Find("tree").GetComponent<Image>();
+        try
+        {
+            tree = GameObject.Find("tree").GetComponent<Image>();
+        }
+        catch
+        {
+
+        }
     }
 
     public void QuitGame() //This function closes the application when triggered
