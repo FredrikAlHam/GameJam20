@@ -41,15 +41,18 @@ public class MenuScript : MonoBehaviour
     public void Easy() //This function changes the difficulty
     {
         Globals.time = 50;
+        Globals.radioStart = true;
     }
     public void Normal() //This function changes the difficulty
     {
         Globals.time = 30;
+        Globals.radioStart = true;
     }
 
     public void Hard() //This function changes the difficulty
     {
         Globals.time = 15;
+        Globals.radioStart = true;
     }
 
 }
