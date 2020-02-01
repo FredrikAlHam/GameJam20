@@ -14,7 +14,7 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame() //This function starts the game by loading the first "Level" scene
     {
-        SceneManager.LoadScene("Leo scene");
+        SceneManager.LoadScene("ChangeBackgroundTesting");
     }
     public void BackToMenu() //This function starts the game by loading the first "Level" scene
     {
