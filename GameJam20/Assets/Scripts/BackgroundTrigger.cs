@@ -14,7 +14,7 @@ public class BackgroundTrigger : MonoBehaviour
     GameObject particleNotes;
 
     [SerializeField]
-    AudioSource scream, footsteps, scissors, radio;
+    AudioSource scream, footsteps, scissors, radio, door;
     
     void Start()
     {
@@ -26,6 +26,7 @@ public class BackgroundTrigger : MonoBehaviour
         background6 = GameObject.Find("Background6").GetComponent<Image>();
         background7 = GameObject.Find("Background7").GetComponent<Image>();
         backgroundBlack = GameObject.Find("BackgroundBlack").GetComponent<Image>();
+        Globals.time = 3;
     }
 
     void Update()
@@ -85,7 +86,6 @@ public class BackgroundTrigger : MonoBehaviour
             {
                 hasStartedTimer = true;
                 background6.enabled = false;
-                scissors.Play(0);
                 if (!Globals.hasWon)
                 {
                     StartCoroutine(DeathScene());
@@ -102,7 +102,15 @@ public class BackgroundTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(Globals.time);
         backgroundOff.enabled = false;
+        if (backgroundNumber == 5)
+        {
+            scissors.Play(0);
+        }
         backgroundBlack.enabled = true;
+        if (backgroundNumber == 1)
+        {
+            door.Play(0);
+        }
         footsteps.Play(0);
         yield return new WaitForSeconds(1.5f);
         footsteps.Stop();
@@ -115,10 +123,11 @@ public class BackgroundTrigger : MonoBehaviour
 
     IEnumerator DeathScene()
     {
-        backgroundBlack.enabled = true;
         scream.Play(0);
         background7.enabled = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
+        backgroundBlack.enabled = true;
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("GameOverMenu");
     }
 
