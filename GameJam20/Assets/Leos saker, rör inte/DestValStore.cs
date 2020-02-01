@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShittyScriptThatNobodyLikes : MonoBehaviour
+public class DestValStore : MonoBehaviour
 {
     public int value;
 }

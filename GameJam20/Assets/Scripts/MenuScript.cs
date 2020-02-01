@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
 
+    Image tree;
+    void Start()
+    {
+        tree = GameObject.Find("tree").GetComponent<Image>();
+    }
+
     public void QuitGame() //This function closes the application when triggered
     {
         Application.Quit();
@@ -40,19 +46,30 @@ public class MenuScript : MonoBehaviour
     }
     public void Easy() //This function changes the difficulty
     {
-        Globals.time = 50;
+        Globals.time = 30;
         Globals.radioStart = true;
     }
     public void Normal() //This function changes the difficulty
     {
-        Globals.time = 30;
+        Globals.time = 20;
         Globals.radioStart = true;
     }
 
     public void Hard() //This function changes the difficulty
     {
-        Globals.time = 15;
+        Globals.time = 10;
         Globals.radioStart = true;
     }
 
+    public void ButtonTree()
+    {
+        tree.enabled = true;
+        StartCoroutine(waitForThree());
+    }
+
+    IEnumerator waitForThree()
+    {
+        yield return new WaitForSeconds(0.3f);
+        tree.enabled = false;
+    }
 }
