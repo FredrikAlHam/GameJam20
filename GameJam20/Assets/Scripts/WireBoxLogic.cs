@@ -51,4 +51,12 @@
         }
         return false;
     }
+    public static int GetSolution(int origin, string color, int count)
+    {
+        if(count == 4)
+        {
+
+        }
+        return 0;
+    }
 }
