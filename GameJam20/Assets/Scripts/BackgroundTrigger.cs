@@ -11,6 +11,9 @@ public class BackgroundTrigger : MonoBehaviour
     bool hasStartedTimer, success;
 
     [SerializeField]
+    GameObject particleNotes;
+
+    [SerializeField]
     AudioSource scream, footsteps, scissors, radio;
     
     void Start()
@@ -61,6 +64,7 @@ public class BackgroundTrigger : MonoBehaviour
                 backgroundOff = background4;
                 backgroundOn = background5;
                 radio.Stop();
+                particleNotes.SetActive(false);
                 StartCoroutine(WaitTimer());
             }
             if (backgroundNumber == 4)
@@ -81,7 +85,6 @@ public class BackgroundTrigger : MonoBehaviour
             {
                 hasStartedTimer = true;
                 background6.enabled = false;
-                background7.enabled = true;
                 scissors.Play(0);
                 if (!Globals.hasWon)
                 {
@@ -114,15 +117,16 @@ public class BackgroundTrigger : MonoBehaviour
     {
         backgroundBlack.enabled = true;
         scream.Play(0);
-        yield return new WaitForSeconds(2);
+        background7.enabled = true;
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("GameOverMenu");
     }
 
     IEnumerator SuccessScene()
     {
-        background7.enabled = false;
         background1.enabled = true;
         radio.Play(0);
+        particleNotes.SetActive(true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("EndGameMenu");
     }
