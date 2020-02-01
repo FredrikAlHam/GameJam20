@@ -10408,7 +10408,7 @@ GameObject:
   - component: {fileID: 1237940590}
   - component: {fileID: 1237940589}
   m_Layer: 0
-  m_Name: Sax
+  m_Name: Scissors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

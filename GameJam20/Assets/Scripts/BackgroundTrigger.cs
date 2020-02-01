@@ -83,11 +83,11 @@ public class BackgroundTrigger : MonoBehaviour
                 background6.enabled = false;
                 background7.enabled = true;
                 scissors.Play(0);
-                if (!success)
+                if (!Globals.hasWon)
                 {
                     StartCoroutine(DeathScene());
                 }
-                else if (success)
+                else if (Globals.hasWon)
                 {
                     StartCoroutine(SuccessScene());
                 }
@@ -114,7 +114,7 @@ public class BackgroundTrigger : MonoBehaviour
     {
         backgroundBlack.enabled = true;
         scream.Play(0);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("GameOverMenu");
     }
 
@@ -131,5 +131,5 @@ public class BackgroundTrigger : MonoBehaviour
 public static class Globals
 {
     public static int time;
-    public static bool radioStart;
+    public static bool radioStart, hasWon;
 }
