@@ -10,7 +10,7 @@ public class ShapeCable : MonoBehaviour
     SpriteRenderer sprite;
     Collider2D cableCollider;
     LineRenderer cableLine;
-    string colorString;
+    public string colorString;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class ShapeCable : MonoBehaviour
 
     void FixedUpdate()
     {
-        print(cableOrigin);
+        //print(cableOrigin);
         cableLine.SetPosition(1, transform.position);
 
         #region Color shit
@@ -92,8 +92,8 @@ public class ShapeCable : MonoBehaviour
     {
         if (!cableGrabbed)
         {
-            cableDestination = col.GetComponent<ShittyScriptThatNobodyLikes>().value;
-            print("Cable Destination " + cableDestination);
+            cableDestination = col.GetComponent<DestValStore>().value;
+            //print("Cable Destination " + cableDestination);
             transform.position = col.transform.position;
             CheckCorrectPlacement();
         }
