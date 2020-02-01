@@ -14,7 +14,7 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame() //This function starts the game by loading the first "Level" scene
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("ChangeBackgroundTesting");
     }
     public void BackToMenu() //This function starts the game by loading the first "Level" scene
     {
@@ -34,18 +34,25 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("DifficultyMenu");
     }
+    public void CreditsMenu() //This function loads the difficulty menu scene
+    {
+        SceneManager.LoadScene("CreditsMenu");
+    }
     public void Easy() //This function changes the difficulty
     {
         Globals.time = 50;
+        Globals.radioStart = true;
     }
     public void Normal() //This function changes the difficulty
     {
         Globals.time = 30;
+        Globals.radioStart = true;
     }
 
     public void Hard() //This function changes the difficulty
     {
         Globals.time = 15;
+        Globals.radioStart = true;
     }
 
 }
