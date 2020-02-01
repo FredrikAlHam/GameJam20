@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditsMenu.unity
     guid: bbcc87f628dcdc4448ab150cddf4d49f
+  - enabled: 1
+    path: Assets/Scenes/ChangeBackgroundTesting.unity
+    guid: 7172df70df0194b4c9637fd6a3333a17
   m_configObjects: {}
