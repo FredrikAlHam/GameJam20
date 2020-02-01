@@ -53,12 +53,26 @@
         }
         return false;
     }
-    public static int GetSolution(int origin, string color, int count)
+    public static bool CheckWire(int origin, int dest, int color, int count)
     {
-        if(count == 4)
+        if (color == 1)
         {
-
+            return CheckWire(origin, dest, "red", count);
         }
-        return 0;
+        else if (color == 2)
+        {
+            return CheckWire(origin, dest, "blue", count);
+        }
+
+        else if (color == 3)
+        {
+            return CheckWire(origin, dest, "green", count);
+        }
+
+        else if (color == 4)
+        {
+            return CheckWire(origin, dest, "white", count);
+        }
+        throw new System.Exception("Color out of bounds");
     }
 }
