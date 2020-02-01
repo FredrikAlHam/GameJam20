@@ -1302,6 +1302,7 @@ MonoBehaviour:
   cableOrigin: 0
   color: 0
   cableNumber: 4
+  colorString: 
 --- !u!50 &695256912
 Rigidbody2D:
   serializedVersion: 4
@@ -1469,10 +1470,10 @@ MonoBehaviour:
   cable3: {fileID: 2118612660}
   cable4: {fileID: 2147247289}
   character: 2000631f64a766a77fa72ea733a7c400d60035a7a400
-  fuck1: {fileID: 2005123707}
-  fuck2: {fileID: 43220893}
-  fuck3: {fileID: 550001665}
-  fuck4: {fileID: 1069620170}
+  dest1: {fileID: 2005123707}
+  dest2: {fileID: 43220893}
+  dest3: {fileID: 550001665}
+  dest4: {fileID: 1069620170}
 --- !u!1 &879193073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +1878,7 @@ MonoBehaviour:
   cableOrigin: 0
   color: 0
   cableNumber: 4
+  colorString: 
 --- !u!50 &1009229876
 Rigidbody2D:
   serializedVersion: 4
@@ -3312,6 +3314,7 @@ MonoBehaviour:
   cableOrigin: 0
   color: 0
   cableNumber: 4
+  colorString: 
 --- !u!50 &2118612665
 Rigidbody2D:
   serializedVersion: 4
@@ -3555,6 +3558,7 @@ MonoBehaviour:
   cableOrigin: 0
   color: 0
   cableNumber: 4
+  colorString: 
 --- !u!50 &2147247294
 Rigidbody2D:
   serializedVersion: 4

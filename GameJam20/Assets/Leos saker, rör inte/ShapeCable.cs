@@ -91,7 +91,7 @@ public class ShapeCable : MonoBehaviour
     {
         if (!cableGrabbed)
         {
-            cableDestination = col.GetComponent<ShittyScriptThatNobodyLikes>().value;
+            cableDestination = col.GetComponent<DestValStore>().value;
             //print("Cable Destination " + cableDestination);
             transform.position = col.transform.position;
             CheckCorrectPlacement();

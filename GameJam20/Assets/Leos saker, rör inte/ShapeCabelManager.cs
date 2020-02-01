@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class ShapeCabelManager : MonoBehaviour
 {
     public GameObject cable1, cable2, cable3, cable4;
-    Text c1Txt, c2Txt, c3Txt, c4Txt, fucktxt1, fucktxt2, fucktxt3, fucktxt4;
+    Text c1Txt, c2Txt, c3Txt, c4Txt, desttxt1, desttxt2, desttxt3, desttxt4;
     [SerializeField]
     char[] character;
     [SerializeField]
-    GameObject fuck1, fuck2, fuck3, fuck4;
+    GameObject dest1, dest2, dest3, dest4;
     bool boxDone;
     int randomChar, rnd;
 
@@ -25,14 +25,14 @@ public class ShapeCabelManager : MonoBehaviour
         c2Txt = cable2.GetComponentInChildren<Text>();
         c3Txt = cable3.GetComponentInChildren<Text>();
         c4Txt = cable4.GetComponentInChildren<Text>();
-        fucktxt1 = fuck1.GetComponentInChildren<Text>();
-        fucktxt2 = fuck2.GetComponentInChildren<Text>();
-        fucktxt3 = fuck3.GetComponentInChildren<Text>();
-        fucktxt4 = fuck4.GetComponentInChildren<Text>();
+        desttxt1 = dest1.GetComponentInChildren<Text>();
+        desttxt2 = dest2.GetComponentInChildren<Text>();
+        desttxt3 = dest3.GetComponentInChildren<Text>();
+        desttxt4 = dest4.GetComponentInChildren<Text>();
 
         //Gör nått med kod tror jag
         GameObject[] cables = { cable1, cable2, cable3, cable4 };
-        genFuck();
+        genDest();
         genCab();
         void genCab()
         {
@@ -49,33 +49,33 @@ public class ShapeCabelManager : MonoBehaviour
             c4Txt.text = character[rnd].ToString();
             cable4.GetComponent<ShapeCable>().cableOrigin = rnd;
         }
-        GameObject[] fuck = { fuck1, fuck2, fuck3, fuck4 };
-        void genFuck()
+        GameObject[] dests = { dest1, dest2, dest3, dest4 };
+        void genDest()
         {
             rnd = NewRandomNumber(0, 11);
-            fucktxt1.text = character[rnd].ToString();
-            fuck1.GetComponent<ShittyScriptThatNobodyLikes>().value = rnd;
+            desttxt1.text = character[rnd].ToString();
+            dest1.GetComponent<DestValStore>().value = rnd;
             rnd = NewRandomNumber(0, 11);
-            fucktxt2.text = character[rnd].ToString();
-            fuck2.GetComponent<ShittyScriptThatNobodyLikes>().value = rnd;
+            desttxt2.text = character[rnd].ToString();
+            dest2.GetComponent<DestValStore>().value = rnd;
             rnd = NewRandomNumber(0, 11);
-            fucktxt3.text = character[rnd].ToString();
-            fuck3.GetComponent<ShittyScriptThatNobodyLikes>().value = rnd;
+            desttxt3.text = character[rnd].ToString();
+            dest3.GetComponent<DestValStore>().value = rnd;
             rnd = NewRandomNumber(0, 11);
-            fucktxt4.text = character[rnd].ToString();
-            fuck4.GetComponent<ShittyScriptThatNobodyLikes>().value = rnd;
+            desttxt4.text = character[rnd].ToString();
+            dest4.GetComponent<DestValStore>().value = rnd;
         }
         bool p()
         {
             int tCorrect = 0;
             foreach (GameObject c in cables)
             {
-                foreach (GameObject f in fuck)
+                foreach (GameObject f in dests)
                 {
-                    if (WireBoxLogic.CheckWire(c.GetComponent<ShapeCable>().cableOrigin, f.GetComponent<ShittyScriptThatNobodyLikes>().value, c.GetComponent<ShapeCable>().color, 4))
+                    if (WireBoxLogic.CheckWire(c.GetComponent<ShapeCable>().cableOrigin, f.GetComponent<DestValStore>().value, c.GetComponent<ShapeCable>().color, 4))
                     {
                         //print(c.GetComponent<ShapeCable>().cableOrigin + " " + f.GetComponent<ShittyScriptThatNobodyLikes>().value + " " + c.GetComponent<ShapeCable>().color);
-                        print(WireBoxLogic.CheckWire(c.GetComponent<ShapeCable>().cableOrigin, f.GetComponent<ShittyScriptThatNobodyLikes>().value, c.GetComponent<ShapeCable>().color, 4));
+                        print(WireBoxLogic.CheckWire(c.GetComponent<ShapeCable>().cableOrigin, f.GetComponent<DestValStore>().value, c.GetComponent<ShapeCable>().color, 4));
                         tCorrect++;
                     }
                 }
@@ -85,7 +85,7 @@ public class ShapeCabelManager : MonoBehaviour
 
         while (!p()) 
         {
-            genFuck();
+            genDest();
             genCab();
         }
         print("F");
