@@ -11100,6 +11100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131e47dde88c0564b95cc433369456ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleNotes: {fileID: 905855772}
   scream: {fileID: 711385480}
   footsteps: {fileID: 1256606684}
   scissors: {fileID: 1237940589}
