@@ -23,6 +23,7 @@ public class ShapeCable : MonoBehaviour
 
     void FixedUpdate()
     {
+        print(cableOrigin);
         cableLine.SetPosition(1, transform.position);
 
         #region Color shit
