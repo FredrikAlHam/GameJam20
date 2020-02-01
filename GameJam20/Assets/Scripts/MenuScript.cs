@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
 
+    Image tree;
+    void Start()
+    {
+        tree = GameObject.Find("tree").GetComponent<Image>();
+    }
+
     public void QuitGame() //This function closes the application when triggered
     {
         Application.Quit();
@@ -55,4 +61,15 @@ public class MenuScript : MonoBehaviour
         Globals.radioStart = true;
     }
 
+    public void ButtonTree()
+    {
+        tree.enabled = true;
+        StartCoroutine(waitForThree());
+    }
+
+    IEnumerator waitForThree()
+    {
+        yield return new WaitForSeconds(0.3f);
+        tree.enabled = false;
+    }
 }
