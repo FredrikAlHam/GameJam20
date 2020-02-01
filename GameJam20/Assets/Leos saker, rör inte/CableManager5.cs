@@ -5,7 +5,8 @@ using UnityEngine;
 public class CableManager5 : MonoBehaviour
 {
     public GameObject cable1, cable2, cable3, cable4, cable5;
-    int randomColor;
+    bool boxDone;
+    int randomSHIT;
 
 
     void Start()
@@ -17,13 +18,17 @@ public class CableManager5 : MonoBehaviour
         cable5.GetComponent<Cable>().color = newRandomNumber();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (cable1.GetComponent<Cable>().isCorrect && cable2.GetComponent<Cable>().isCorrect && cable3.GetComponent<Cable>().isCorrect && cable4.GetComponent<Cable>().isCorrect && cable4.GetComponent<Cable>().isCorrect && cable5.GetComponent<Cable>().isCorrect)
+        {
+            boxDone = true;
+            print("Jättefint! Otroligt bra gjort");
+        }
     }
 
     int newRandomNumber()
     {
-        return randomColor = Random.Range(1, 5);
+        return randomSHIT = Random.Range(1, 5);
     }
 }

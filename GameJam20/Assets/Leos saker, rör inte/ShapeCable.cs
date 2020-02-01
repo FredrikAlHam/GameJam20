@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cable : MonoBehaviour
+public class ShapeCable : MonoBehaviour
 {
     bool cableGrabbed;
     public bool isCorrect;
@@ -10,7 +10,6 @@ public class Cable : MonoBehaviour
     SpriteRenderer sprite;
     Collider2D cableCollider;
     LineRenderer cableLine;
-    Color red, blue, green;
     string colorString;
 
     void Start()
@@ -91,17 +90,10 @@ public class Cable : MonoBehaviour
     {
         if (!cableGrabbed)
         {
+            cableDestination = col.GetComponent<ShittyScriptThatNobodyLikes>().value;
+            print("Cable Destination " + cableDestination);
             transform.position = col.transform.position;
-
-            for (int i = 1; i <= 5; i++)
-            {
-                if (col.gameObject.tag == "Slot" + i.ToString())
-                {
-                    cableDestination = i;
-                    CheckCorrectPlacement();
-                    print(i);
-                }
-            }
+            CheckCorrectPlacement();
         }
     }
 
