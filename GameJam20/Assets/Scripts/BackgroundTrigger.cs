@@ -15,6 +15,7 @@ public class BackgroundTrigger : MonoBehaviour
     
     void Start()
     {
+        radio.Play(0);
         background1 = GameObject.Find("Background1").GetComponent<Image>();
         background2 = GameObject.Find("Background2").GetComponent<Image>();
         background3 = GameObject.Find("Background3").GetComponent<Image>();
@@ -55,6 +56,7 @@ public class BackgroundTrigger : MonoBehaviour
                 hasStartedTimer = true;
                 backgroundOff = background4;
                 backgroundOn = background5;
+                radio.Stop();
                 StartCoroutine(WaitTimer());
             }
             if (backgroundNumber == 4)
@@ -63,13 +65,20 @@ public class BackgroundTrigger : MonoBehaviour
                 backgroundOff = background5;
                 backgroundOn = background6;
                 StartCoroutine(WaitTimer());
-                scissors.Play(0);
             }
             if (backgroundNumber == 5)
             {
                 hasStartedTimer = true;
+                backgroundOff = background6;
+                backgroundOn = background7;
+                StartCoroutine(WaitTimer());
+            }
+            if (backgroundNumber == 6)
+            {
+                hasStartedTimer = true;
                 background6.enabled = false;
                 background7.enabled = true;
+                scissors.Play(0);
                 if (!success)
                 {
                     StartCoroutine(DeathScene());
@@ -89,6 +98,7 @@ public class BackgroundTrigger : MonoBehaviour
         backgroundBlack.enabled = true;
         footsteps.Play(0);
         yield return new WaitForSeconds(1.5f);
+        footsteps.Stop();
         backgroundBlack.enabled = false;
         backgroundOn.enabled = true;
         backgroundBlack.enabled = false;
