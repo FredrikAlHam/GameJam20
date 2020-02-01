@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class ShapeCabelManager : MonoBehaviour
 {
     public GameObject cable1, cable2, cable3, cable4;
-    Text c1Txt, c2Txt, c3Txt, c4Txt, fucktxt1, fucktxt2, fucktxt3, fucktxt4;
+    Text c1Txt, c2Txt, c3Txt, c4Txt, desttxt1, desttxt2, desttxt3, desttxt4;
     [SerializeField]
     char[] character;
     [SerializeField]
-    GameObject fuck1, fuck2, fuck3, fuck4;
+    GameObject dest1, dest2, dest3, dest4;
     bool boxDone;
-    int randomChar, konstigsiffra1, konstigsiffra2, konstigsiffra3, konstigsiffra4, konstigSiffra69, konstigSiffra420, konstigSiffra1337, konstigSiffra3;
+    int randomChar, rnd;
 
     void Start()
     {
@@ -25,37 +25,70 @@ public class ShapeCabelManager : MonoBehaviour
         c2Txt = cable2.GetComponentInChildren<Text>();
         c3Txt = cable3.GetComponentInChildren<Text>();
         c4Txt = cable4.GetComponentInChildren<Text>();
-        fucktxt1 = fuck1.GetComponentInChildren<Text>();
-        fucktxt2 = fuck2.GetComponentInChildren<Text>();
-        fucktxt3 = fuck3.GetComponentInChildren<Text>();
-        fucktxt4 = fuck4.GetComponentInChildren<Text>();
+        desttxt1 = dest1.GetComponentInChildren<Text>();
+        desttxt2 = dest2.GetComponentInChildren<Text>();
+        desttxt3 = dest3.GetComponentInChildren<Text>();
+        desttxt4 = dest4.GetComponentInChildren<Text>();
 
         //Gör nått med kod tror jag
-        konstigsiffra1 = NewRandomNumber(0, 11);
-        c1Txt.text = character[konstigsiffra1].ToString();
-        cable1.GetComponent<ShapeCable>().cableOrigin = konstigsiffra1;
-        konstigsiffra2 = NewRandomNumber(0, 11);
-        c2Txt.text = character[konstigsiffra2].ToString();
-        cable2.GetComponent<ShapeCable>().cableOrigin = konstigsiffra2;
-        konstigsiffra3 = NewRandomNumber(0, 11);
-        c3Txt.text = character[konstigsiffra3].ToString();
-        cable3.GetComponent<ShapeCable>().cableOrigin = konstigsiffra3;
-        konstigsiffra4 = NewRandomNumber(0, 11);
-        c4Txt.text = character[konstigsiffra4].ToString();
-        cable4.GetComponent<ShapeCable>().cableOrigin = konstigsiffra4;
+        GameObject[] cables = { cable1, cable2, cable3, cable4 };
+        genDest();
+        genCab();
+        void genCab()
+        {
+            rnd = NewRandomNumber(0, 11);
+            c1Txt.text = character[rnd].ToString();
+            cable1.GetComponent<ShapeCable>().cableOrigin = rnd;
+            rnd = NewRandomNumber(0, 11);
+            c2Txt.text = character[rnd].ToString();
+            cable2.GetComponent<ShapeCable>().cableOrigin = rnd;
+            rnd = NewRandomNumber(0, 11);
+            c3Txt.text = character[rnd].ToString();
+            cable3.GetComponent<ShapeCable>().cableOrigin = rnd;
+            rnd = NewRandomNumber(0, 11);
+            c4Txt.text = character[rnd].ToString();
+            cable4.GetComponent<ShapeCable>().cableOrigin = rnd;
+        }
+        GameObject[] dests = { dest1, dest2, dest3, dest4 };
+        void genDest()
+        {
+            rnd = NewRandomNumber(0, 11);
+            desttxt1.text = character[rnd].ToString();
+            dest1.GetComponent<DestValStore>().value = rnd;
+            rnd = NewRandomNumber(0, 11);
+            desttxt2.text = character[rnd].ToString();
+            dest2.GetComponent<DestValStore>().value = rnd;
+            rnd = NewRandomNumber(0, 11);
+            desttxt3.text = character[rnd].ToString();
+            dest3.GetComponent<DestValStore>().value = rnd;
+            rnd = NewRandomNumber(0, 11);
+            desttxt4.text = character[rnd].ToString();
+            dest4.GetComponent<DestValStore>().value = rnd;
+        }
+        bool p()
+        {
+            int tCorrect = 0;
+            foreach (GameObject c in cables)
+            {
+                foreach (GameObject f in dests)
+                {
+                    if (WireBoxLogic.CheckWire(c.GetComponent<ShapeCable>().cableOrigin, f.GetComponent<DestValStore>().value, c.GetComponent<ShapeCable>().color, 4))
+                    {
+                        //print(c.GetComponent<ShapeCable>().cableOrigin + " " + f.GetComponent<ShittyScriptThatNobodyLikes>().value + " " + c.GetComponent<ShapeCable>().color);
+                        print(WireBoxLogic.CheckWire(c.GetComponent<ShapeCable>().cableOrigin, f.GetComponent<DestValStore>().value, c.GetComponent<ShapeCable>().color, 4));
+                        tCorrect++;
+                    }
+                }
+            }
+            if (tCorrect >= 4) return true; else return false;
+        }
 
-        konstigSiffra69 = NewRandomNumber(0, 11);
-        fucktxt1.text = character[konstigSiffra69].ToString();
-        fuck1.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra69;
-        konstigSiffra1337 = NewRandomNumber(0, 11);
-        fucktxt2.text = character[konstigSiffra1337].ToString();
-        fuck2.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra1337;
-        konstigSiffra3 = NewRandomNumber(0, 11);
-        fucktxt3.text = character[konstigSiffra3].ToString();
-        fuck3.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra3;
-        konstigSiffra420 = NewRandomNumber(0, 11);
-        fucktxt4.text = character[konstigSiffra420].ToString();
-        fuck4.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra420;
+        while (!p()) 
+        {
+            genDest();
+            genCab();
+        }
+        print("F");
     }
 
     void FixedUpdate()
