@@ -31,29 +31,29 @@ public class ShapeCabelManager : MonoBehaviour
         fucktxt4 = fuck4.GetComponentInChildren<Text>();
 
         //Gör nått med kod tror jag
-        konstigsiffra1 = NewRandomNumber(0, 14);
+        konstigsiffra1 = NewRandomNumber(0, 11);
         c1Txt.text = character[konstigsiffra1].ToString();
         cable1.GetComponent<ShapeCable>().cableOrigin = konstigsiffra1;
-        konstigsiffra2 = NewRandomNumber(0, 14);
+        konstigsiffra2 = NewRandomNumber(0, 11);
         c2Txt.text = character[konstigsiffra2].ToString();
         cable2.GetComponent<ShapeCable>().cableOrigin = konstigsiffra2;
-        konstigsiffra3 = NewRandomNumber(0, 14);
+        konstigsiffra3 = NewRandomNumber(0, 11);
         c3Txt.text = character[konstigsiffra3].ToString();
         cable3.GetComponent<ShapeCable>().cableOrigin = konstigsiffra3;
-        konstigsiffra4 = NewRandomNumber(0, 14);
+        konstigsiffra4 = NewRandomNumber(0, 11);
         c4Txt.text = character[konstigsiffra4].ToString();
         cable4.GetComponent<ShapeCable>().cableOrigin = konstigsiffra4;
 
-        konstigSiffra69 = NewRandomNumber(0, 14);
+        konstigSiffra69 = NewRandomNumber(0, 11);
         fucktxt1.text = character[konstigSiffra69].ToString();
         fuck1.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra69;
-        konstigSiffra1337 = NewRandomNumber(0, 14);
+        konstigSiffra1337 = NewRandomNumber(0, 11);
         fucktxt2.text = character[konstigSiffra1337].ToString();
         fuck2.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra1337;
-        konstigSiffra3 = NewRandomNumber(0, 14);
+        konstigSiffra3 = NewRandomNumber(0, 11);
         fucktxt3.text = character[konstigSiffra3].ToString();
         fuck3.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra3;
-        konstigSiffra420 = NewRandomNumber(0, 14);
+        konstigSiffra420 = NewRandomNumber(0, 11);
         fucktxt4.text = character[konstigSiffra420].ToString();
         fuck4.GetComponent<ShittyScriptThatNobodyLikes>().value = konstigSiffra420;
     }
