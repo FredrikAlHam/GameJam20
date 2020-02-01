@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DifficultyMenu.unity
     guid: bf3504f00d82f114ca72ac7112c5bd0e
+  - enabled: 1
+    path: Assets/Scenes/Leo scene.unity
+    guid: eff8c59a32a4d92439d917cd56dd0810
+  - enabled: 1
+    path: Assets/Scenes/CreditsMenu.unity
+    guid: bbcc87f628dcdc4448ab150cddf4d49f
+  - enabled: 1
+    path: Assets/Scenes/ChangeBackgroundTesting.unity
+    guid: 7172df70df0194b4c9637fd6a3333a17
   m_configObjects: {}
