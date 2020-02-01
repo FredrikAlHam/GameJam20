@@ -2,6 +2,8 @@
 {
     public static bool CheckWire(int origin, int dest, string color, int count)
     {
+        if (origin > 6) origin -= 3;
+        if (dest > 6) dest -= 3;
         if (count == 3)
         {
             if (color == "red")
