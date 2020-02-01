@@ -115,7 +115,7 @@ public class BackgroundTrigger : MonoBehaviour
         backgroundBlack.enabled = true;
         scream.Play(0);
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("DeathScene");
+        SceneManager.LoadScene("GameOverMenu");
     }
 
     IEnumerator SuccessScene()
@@ -124,7 +124,7 @@ public class BackgroundTrigger : MonoBehaviour
         background1.enabled = true;
         radio.Play(0);
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("SuccessScene");
+        SceneManager.LoadScene("EndGameMenu");
     }
 }
 
