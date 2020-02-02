@@ -14,7 +14,7 @@ public class BackgroundTrigger : MonoBehaviour
     GameObject particleNotes;
 
     [SerializeField]
-    AudioSource scream, footsteps, scissors, radio, door, gravelFootsteps, shortCircuit;
+    AudioSource scream, footsteps, scissors, radio, door, gravelFootsteps, shortCircuit, breathing, ambience, slowHeartbeat, fastHeartbeat;
     
     void Start()
     {
@@ -65,6 +65,8 @@ public class BackgroundTrigger : MonoBehaviour
                 backgroundOff = background4;
                 backgroundOn = background5;
                 radio.Stop();
+                breathing.Play(0);
+                slowHeartbeat.Play(0);
                 particleNotes.SetActive(false);
                 StartCoroutine(WaitTimer());
             }
@@ -80,6 +82,8 @@ public class BackgroundTrigger : MonoBehaviour
                 hasStartedTimer = true;
                 backgroundOff = background6;
                 backgroundOn = background7;
+                slowHeartbeat.Stop();
+                fastHeartbeat.Play(0);
                 StartCoroutine(WaitTimer());
             }
             if (backgroundNumber == 6)
@@ -88,6 +92,8 @@ public class BackgroundTrigger : MonoBehaviour
                 background6.enabled = false;
                 if (!Globals.hasWon)
                 {
+                    ambience.Stop();
+                    breathing.Stop();
                     StartCoroutine(DeathScene());
                 }
                 else if (Globals.hasWon)
@@ -122,7 +128,6 @@ public class BackgroundTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(Globals.time);
         backgroundOff.enabled = false;
-        backgroundBlack.enabled = true;
         if (backgroundNumber == 1)
         {
             door.Play(0);
