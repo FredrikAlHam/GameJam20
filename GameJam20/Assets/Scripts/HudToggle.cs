@@ -27,7 +27,7 @@ public class HudToggle : MonoBehaviour
             hud.SetActive(false);
         }
     }
-
+    /*
     IEnumerator SlideHud(GameObject Vector3 startPos, Vector3 endPos, float time)
     {
         if (fadeObj == null)
@@ -56,4 +56,5 @@ public class HudToggle : MonoBehaviour
             fadeObj.color = endColor;
         }
     }
+    */
 }
