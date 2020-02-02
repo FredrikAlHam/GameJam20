@@ -3,6 +3,11 @@
 public class BoxScrew : MonoBehaviour
 {
     [SerializeField]
+    AudioSource screwdriver;
+
+    float currentRotation, previousRotation, travel;
+
+    [SerializeField]
     private float rotationSpeed = 5;
     [SerializeField]
     private float totalRotation = 0;
@@ -10,6 +15,7 @@ public class BoxScrew : MonoBehaviour
     private float scrollSensativity = 10;
     [SerializeField]
     private float totalRotationRequired = 500;
+
     private void OnMouseOver()
     {
         if (totalRotation >= 0 && Input.GetAxis("Mouse ScrollWheel") >= 0)
@@ -25,3 +31,18 @@ public class BoxScrew : MonoBehaviour
         if (totalRotation > totalRotationRequired) Destroy(gameObject);
     }
 }
+
+
+/*
+            currentRotation = transform.rotation.z;
+            travel = currentRotation - previousRotation;
+            if (currentRotation != previousRotation)
+            {
+                screwdriver.Play(0);
+                previousRotation = currentRotation;
+            }
+            else
+            {
+                screwdriver.Stop();
+            }
+*/
