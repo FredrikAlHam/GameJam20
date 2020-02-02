@@ -223,6 +223,7 @@ MonoBehaviour:
   cableOrigin: 5
   color: 0
   cableNumber: 5
+  cable: {fileID: 0}
 --- !u!212 &7682365482326701303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -287,7 +288,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.3059094, y: 0.53438646}
     oldSize: {x: 1.74, y: 1.94}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -579,6 +580,7 @@ MonoBehaviour:
   cableOrigin: 1
   color: 0
   cableNumber: 5
+  cable: {fileID: 0}
 --- !u!212 &7682365482872925891
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -643,7 +645,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.3059094, y: 0.53438646}
     oldSize: {x: 1.74, y: 1.94}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -952,6 +954,7 @@ MonoBehaviour:
   cableOrigin: 2
   color: 0
   cableNumber: 5
+  cable: {fileID: 0}
 --- !u!212 &7682365483186358717
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1016,7 +1019,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.3059094, y: 0.53438646}
     oldSize: {x: 1.74, y: 1.94}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -1343,6 +1346,7 @@ MonoBehaviour:
   cableOrigin: 3
   color: 0
   cableNumber: 5
+  cable: {fileID: 0}
 --- !u!212 &7682365484299935544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1407,7 +1411,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.3059094, y: 0.53438646}
     oldSize: {x: 1.74, y: 1.94}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -1585,6 +1589,7 @@ MonoBehaviour:
   cableOrigin: 4
   color: 0
   cableNumber: 5
+  cable: {fileID: 0}
 --- !u!212 &7682365484323327283
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1649,7 +1654,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.3059094, y: 0.53438646}
     oldSize: {x: 1.74, y: 1.94}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cable : MonoBehaviour
 {
-    bool cableGrabbed;
+    bool cableGrabbed, playedSound = true;
     public bool isCorrect;
     public int cableDestination, cableOrigin, color, cableNumber;
     SpriteRenderer sprite;
@@ -12,6 +12,9 @@ public class Cable : MonoBehaviour
     LineRenderer cableLine;
     Color red, blue, green;
     string colorString;
+
+    [SerializeField]
+    AudioSource cable;
 
     void Start()
     {
@@ -63,6 +66,7 @@ public class Cable : MonoBehaviour
     void OnMouseDrag()
     {
         cableGrabbed = true;
+        playedSound = false;
     }
 
     void OnMouseUp()
@@ -92,6 +96,12 @@ public class Cable : MonoBehaviour
         if (!cableGrabbed)
         {
             transform.position = col.transform.position;
+
+            if (!playedSound)
+            {
+                cable.Play(0);
+                playedSound = true;
+            }
 
             for (int i = 1; i <= 5; i++)
             {
