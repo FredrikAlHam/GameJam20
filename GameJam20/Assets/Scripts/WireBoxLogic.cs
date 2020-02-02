@@ -51,7 +51,31 @@
             }
             else if (color == "white" && 6 - origin == dest) return true;
         }
+        else if (count >= 6)
+        {
+            if (color == "red" && (origin + 3) % 11 == dest)
+            {
+                return true;
+            }
+            else if (color == "blue" && (origin + 9) % 11 == dest)
+            {
+                return true;
+            }
+            else if (color == "green" && (2 * origin + 1) % 11 == dest)
+            {
+                return true;
+            }
+            else if (color == "white" && (3 * origin + 3) % 11 == dest)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            throw new System.Exception("Count must be greater than 3");
+        }
         return false;
+
     }
     public static bool CheckWire(int origin, int dest, int color, int count)
     {
