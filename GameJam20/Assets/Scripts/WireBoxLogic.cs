@@ -1,4 +1,6 @@
-﻿public class WireBoxLogic
+﻿using System.Collections.Generic;
+using System;
+public static class WireBoxLogic
 {
     public static bool CheckWire(int origin, int dest, string color, int count)
     {
@@ -75,7 +77,6 @@
             throw new System.Exception("Count must be greater than 3");
         }
         return false;
-
     }
     public static bool CheckWire(int origin, int dest, int color, int count)
     {
@@ -98,5 +99,148 @@
             return CheckWire(origin, dest, "white", count);
         }
         throw new System.Exception("Color out of bounds");
+    }
+    public static int GetAnswer(int origin, string color, int count)
+    {
+        if (count < 6) throw new System.Exception("Feature not inplemented for less than 6 wires");
+        if (count >= 6)
+        {
+            if (color == "red") return (origin + 3) % 11;
+            else if (color == "blue") return (origin + 9) % 11;
+            else if (color == "green") return (2 * origin + 1) % 11;
+            else if (color == "white") return (3 * origin + 3) % 11;
+        }
+        throw new System.Exception("Character not possible");
+    }
+    public static int GetAnswer(int origin, int color, int count)
+    {
+        if (color == 1)
+        {
+            return GetAnswer(origin, "red", count);
+        }
+        else if (color == 2)
+        {
+            return GetAnswer(origin, "blue", count);
+        }
+        else if (color == 3)
+        {
+            return GetAnswer(origin, "green", count);
+        }
+        else if (color == 4)
+        {
+            return GetAnswer(origin, "white", count);
+        }
+        throw new System.Exception("Color out of bounds");
+    }
+    public static int[] GetNecessaryAnswers(WireNode[] nodes)
+    {
+        List<int> positions = new List<int>();
+        List<string> colors = new List<string>();
+        int i = 0;
+        foreach (WireNode node in nodes)
+        {
+            positions.Add(i);
+            colors.Add(node.color);
+            i++;
+        }
+        return GetNecessaryAnswers(positions.ToArray(), colors.ToArray(), nodes.Length);
+    }
+    public static int[] GetNecessaryAnswers(int[] origins, string[] colors, int count)
+    {
+        List<int> newOrigins = new List<int>();
+        for (int i = 0; i < origins.Length; i++)
+        {
+            newOrigins.Add(GetAnswer(origins[i], colors[i], count));
+        }
+        return newOrigins.ToArray();
+    }
+    public static int[] GetNecessaryAnswers(int[] origins, int[] colors, int count)
+    {
+        List<string> stringColors = new List<string>();
+        foreach (int color in colors)
+        {
+            if (color == 1)
+            {
+                stringColors.Add("red");
+            }
+            else if (color == 2)
+            {
+                stringColors.Add("blue");
+            }
+            else if (color == 3)
+            {
+                stringColors.Add("green");
+            }
+            else if (color == 4)
+            {
+                stringColors.Add("white");
+            }
+            throw new System.Exception("Color out of bounds");
+        }
+        return GetNecessaryAnswers(origins, stringColors.ToArray(), count);
+    }
+    public static WireNode[] GetRandomNodes(int count)
+    {
+        List<WireNode> wireNodes= new List<WireNode>();
+        for (int i = 0; i < count; i++)
+        {
+            WireNode node = new WireNode();
+            node.Color(new Random().Next(4));
+            node.character = new Random().Next(10);
+            wireNodes.Add(node);
+        }
+        return wireNodes.ToArray();
+    }
+    [Serializable]
+    public struct WireNode
+    {
+        public int character;
+        public string color;
+        public void Color(int cInt)
+        {
+            if (cInt == 1)
+            {
+                color = "red";
+            }
+            else if (cInt == 2)
+            {
+                color = "blue";
+            }
+            else if (cInt == 3)
+            {
+                color = "green";
+            }
+            else if (cInt == 4)
+            {
+                color = "white";
+            }
+            throw new System.Exception("Color out of bounds");
+        }
+        public WireNode(int ch, string c)
+        {
+            character = ch;
+            color = c;
+        }
+        public WireNode(int ch)
+        {
+            character = ch;
+            color = null;
+        }
+    }
+    public struct WireBox
+    {
+        public WireNode[] wires;
+        public WireNode[] destinations;
+        public WireBox(int count)
+        {
+            wires = GetRandomNodes(count);
+            int[] destChars = GetNecessaryAnswers(wires);
+            List<WireNode> dests = new List<WireNode>();
+            foreach (int ch in destChars)
+            {
+                dests.Add(new WireNode(ch));
+            }
+            destinations = dests.ToArray();
+        }
     }
 }
